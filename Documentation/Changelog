@@ -1,0 +1,32 @@
+
+CHANGELOG
+
+* 2013/07/31:
+
+    - Emit the pixels with premultiplied alpha.
+      Allows drawing PNGs and images with per-pixel alpha, using the AlphaBlend
+      function with AC_SRC_ALPHA.
+
+* 2013/07/30:
+
+    - '--new' is now '--newline'.
+
+* 2013/07/25:
+
+    - Added '--new system'.
+
+    - Default to system newlines instead of unix.
+
+* 2013/07/09
+
+    - Write in binary, always, to avoid Python automatic newline conversion.
+      Fixes '--new [format]' not working when using stdout.
+
+* 2013/07/08:
+
+    - Avoid creating blank header files when images do not exist.
+
+* 2013/06/20:
+
+    - Port to Python 3 and Pillow.
+
