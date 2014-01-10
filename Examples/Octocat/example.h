@@ -1,7 +1,7 @@
 
 // Window properties:
 
-#define WINDOW_TITLE TEXT("Octocat Example")
+#define WINDOW_TITLE TEXT("Octocat example")
 #define WINDOW_WIDTH 320
 #define WINDOW_HEIGHT 320
 
