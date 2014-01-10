@@ -40,11 +40,18 @@ static const BITMAPINFO sprbmi = {
 StretchDIBits(..., sprite, &sprbmi, DIB_RGB_COLORS, SRCCOPY);
 ```
 
+And here is the result:
+
+![Screenshot](https://raw.github.com/Beluki/EmbedDIBits/master/Screenshot/Screenshot.png)
+
 The 32 bit format is used because it's a lot easier to deal with sprites
 in the same format, it's the most general format and it's compatible with
 [AlphaBlend][], allowing for per-pixel alpha. Crinkler will compress
 the images anyway, so it doesn't matter. Formats supported are BMP, JPG,
 PNG, TGA, TIFF... anything supported by Pillow itself.
+
+There are two complete examples in the [Examples][] folder, one with and one
+without alpha-blending.
 
 ### Command-line options
 
@@ -120,4 +127,5 @@ folder for more information. No warranty though.
 [Pillow]: https://pypi.python.org/pypi/Pillow
 
 [Documentation]: https://github.com/Beluki/EmbedDIBits/tree/master/Documentation
+[Examples]: https://github.com/Beluki/EmbedDIBits/tree/master/Examples
 
