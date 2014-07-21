@@ -88,7 +88,7 @@ the complexity of doing any kind of name-mangling for the corner cases.
 ### Portability
 
 Information and error messages are written to stdout and stderr
-respectively, using the current platform newline format and UTF-8 encoding.
+respectively, using the current platform newline format and encoding.
 
 Generated output (the C code) is written as UTF-8, using the newline format
 specified by the option `--newline ...`. By default, platform newlines are used
