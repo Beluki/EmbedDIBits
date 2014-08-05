@@ -1,5 +1,5 @@
 
-### About
+## About
 
 EmbedDIBits is a small Python 3 program that can convert images to C
 byte arrays. The output is compatible with the Win32 API functions:
@@ -9,7 +9,7 @@ This is useful in 4kb or 64kb demos, where it isn't possible link against
 libc or to use resource files with [Crinkler][] or as a general method
 to embed images without dealing with image formats complexity.
 
-### Installation and usage
+## Installation and usage
 
 To install, just make sure you are using Python 3 and have the [Pillow][]
 module installed. EmbedDIBits is a single Python script that you can put
@@ -53,7 +53,7 @@ PNG, TGA, TIFF... anything supported by Pillow itself.
 There are two complete examples in the [Examples][] folder, one with and one
 without alpha-blending.
 
-### Command-line options
+## Command-line options
 
 EmbedDIBits has some options that can be used to change the behavior:
 
@@ -76,7 +76,7 @@ EmbedDIBits has some options that can be used to change the behavior:
   (sprites.h is generated, errors go to stderr)
   ```
 
-### Limitations
+## Limitations
 
 Since EmbedDIBits chooses variable names based on the input image filenames,
 it's possible to produce incorrect C identifiers in some corner cases, for
@@ -85,7 +85,7 @@ example when using reserved C keywords as filenames.
 I believe the convenience of just using 'sprite' in the common case, outweights
 the complexity of doing any kind of name-mangling for the corner cases.
 
-### Portability
+## Portability
 
 Information and error messages are written to stdout and stderr
 respectively, using the current platform newline format and encoding.
@@ -101,19 +101,19 @@ instead of aborting. It can be interrupted with Control + C.
 EmbedDIBits is tested on Windows 7 and 8 and on Debian (both x86 and x86-64)
 using Python 3.3+ and Pillow 2.1.0+. Python 2.x is not supported.
 
-### Alternatives
+## Alternatives
 
 There are other programs (notably [GIMP][]) that can export to C. Unfortunately,
 I'm not aware of any program whose output is directly usable by StretchDIBits
 and the other Win32 API functions.
 
-### Status
+## Status
 
 This program is feature-complete and has no known bugs. Unless new issues
 are reported or requests are made I plan no further development on it other
 than maintenance.
 
-### License
+## License
 
 Like all my hobby projects, this is Free Software. See the [Documentation][]
 folder for more information. No warranty though.
