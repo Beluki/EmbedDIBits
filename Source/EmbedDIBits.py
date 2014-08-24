@@ -18,12 +18,12 @@ from argparse import ArgumentParser, RawDescriptionHelpFormatter
 
 def outln(line):
     """ Write 'line' to stdout, using the platform encoding and newline format. """
-    print(line)
+    print(line, flush = True)
 
 
 def errln(line):
     """ Write 'line' to stderr, using the platform encoding and newline format. """
-    print(line, file = sys.stderr)
+    print('EmbedDIBits.py: error:', line, file = sys.stderr, flush = True)
 
 
 # IO utils:
@@ -54,8 +54,8 @@ except ImportError:
     sys.exit(1)
 
 
-# For portability, all C output is done in bytes
-# to avoid Python automatic newline conversion.
+# All the C output is done in bytes to avoid automatic newline conversion
+# and default platform encodings.
 
 
 # Since there are only 256 possible pixel R, G, B values
@@ -95,13 +95,18 @@ def dibits2h(image, buffer, variable, newline):
     # emit declaration:
     buffer.write(newline)
     buffer.write(utf8_bytes('DWORD %s[%s] = {' % (variable, total)))
+    buffer.write(newline)
+
+    # indent the first line:
+    buffer.write(b'    ')
 
     # emit pixeldata:
     linepixels = 0
     for y in range(height):
         for x in range(width):
 
-            if linepixels % 5 == 0:
+            # newline/indentation after six pixels (70 characters):
+            if linepixels == 6:
                 buffer.write(newline)
                 buffer.write(b'    ')
                 linepixels = 0
@@ -143,7 +148,7 @@ def make_parser():
         description = __doc__,
         formatter_class = RawDescriptionHelpFormatter,
         epilog = 'example: EmbedDIBits.py box.png wall.png --stdout > sprites.h',
-        usage  = 'EmbedDIBits.py image [image ...] [option [options ...]]')
+        usage  = 'EmbedDIBits.py filepath [filepath ...] [option [options ...]]')
 
     # positional:
     parser.add_argument('filepaths',
@@ -189,7 +194,8 @@ def main():
             if options.stdout:
                 compile_image(image, sys.stdout.buffer, variable, newline, buffering)
 
-            # compile to a C header file:
+            # compile to a C header file
+            # (stdout used only for information):
             else:
                 target = noext(filepath) + '.h'
 
@@ -202,7 +208,7 @@ def main():
         # note that this does not handle KeyboardInterrupt
         # since it is derived from BaseException:
         except Exception as err:
-            errln('error: %s - %s' % (filepath, str(err)))
+            errln('%s - %s' % (filepath, str(err)))
             status = 1
 
     sys.exit(status)

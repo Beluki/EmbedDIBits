@@ -122,10 +122,10 @@ void
 Shutdown (UINT uExitCode) {
 
     // release resources:
-    if (octocat_bmp)
+    if (octocat_bmp != NULL)
         DeleteObject(octocat_bmp);
 
-    if (octocat_hdc)
+    if (octocat_hdc != NULL)
         DeleteDC(octocat_hdc);
 
     if (g_hMemBMP != NULL)

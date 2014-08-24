@@ -1,6 +1,15 @@
 
 CHANGELOG
 
+* 2014/08/24:
+
+    - Prefix program name on errors to stderr.
+      e.g. 'EmbedDIBits.py: error: message...'
+
+    - Emit more pixels per line (70 characters).
+
+    - Working on Pillow 2.5.3.
+
 * 2014/07/21:
 
     - Revised. Working on Python 3.4.1 and Pillow 2.5.1.
