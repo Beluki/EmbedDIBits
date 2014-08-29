@@ -62,7 +62,7 @@ except ImportError:
 # we cache all the conversions to hexadecimal values, as bytes.
 # e.g. BYTES_RGB_HEX[15] = b'0F'
 
-BYTES_RGB_HEX = [utf8_bytes(('%X' % number).rjust(2, '0')) for number in range(256)]
+BYTES_RGB_HEX = [utf8_bytes('{:0>2X}'.format(number)) for number in range(256)]
 
 
 # Possible newline options, as bytes:
@@ -94,7 +94,7 @@ def dibits2h(image, buffer, variable, newline):
 
     # emit declaration:
     buffer.write(newline)
-    buffer.write(utf8_bytes('DWORD %s[%s] = {' % (variable, total)))
+    buffer.write(utf8_bytes('DWORD {}[{}] = {{'.format(variable, total)))
     buffer.write(newline)
 
     # indent the first line:
@@ -182,7 +182,7 @@ def main():
     options = parser.parse_args()
     status = 0
 
-    buffering = (options.no_buffer == False)
+    buffering = not(options.no_buffer)
     newline = BYTES_NEWLINES[options.newline]
 
     for filepath in options.filepaths:
@@ -200,7 +200,7 @@ def main():
                 target = noext(filepath) + '.h'
 
                 if not options.quiet:
-                    outln('%s -> %s' % (filepath, target))
+                    outln('{} -> {}'.format(filepath, target))
 
                 with open(target, 'wb') as descriptor:
                     compile_image(image, descriptor, variable, newline, buffering)
@@ -208,7 +208,7 @@ def main():
         # note that this does not handle KeyboardInterrupt
         # since it is derived from BaseException:
         except Exception as err:
-            errln('%s - %s' % (filepath, str(err)))
+            errln('{} - {}'.format(filepath, err))
             status = 1
 
     sys.exit(status)
