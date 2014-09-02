@@ -11,7 +11,7 @@ to embed images without dealing with image formats complexity.
 
 ## Installation and usage
 
-To install, just make sure you are using Python 3 and have the [Pillow][]
+To install, just make sure you are using Python 3.3+ and have the [Pillow][]
 module installed. EmbedDIBits is a single Python script that you can put
 in your PATH.
 
@@ -99,7 +99,7 @@ EmbedDIBits skips the current file and proceeds with the next one
 instead of aborting. It can be interrupted with Control + C.
 
 EmbedDIBits is tested on Windows 7 and 8 and on Debian (both x86 and x86-64)
-using Python 3.3+ and Pillow 2.1.0+. Python 2.x is not supported.
+using Python 3.3+ and Pillow 2.1.0+. Older versions are not supported.
 
 ## Alternatives
 
@@ -109,9 +109,10 @@ and the other Win32 API functions.
 
 ## Status
 
-This program is feature-complete and has no known bugs. Unless new issues
-are reported or requests are made I plan no further development on it other
-than maintenance.
+This program is finished!
+
+EmbedDIBits is feature-complete and has no known bugs. Unless issues are reported
+I plan no further development on it other than maintenance.
 
 ## License
 
