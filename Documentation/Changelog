@@ -1,6 +1,10 @@
 
 CHANGELOG
 
+* 2016/02/02:
+
+    - Revised. Working on Python 3.5.0 and Pillow 3.1.0.
+
 * 2014/08/24:
 
     - Prefix program name on errors to stderr.

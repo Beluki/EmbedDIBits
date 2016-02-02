@@ -42,7 +42,7 @@ StretchDIBits(..., sprite, &sprbmi, DIB_RGB_COLORS, SRCCOPY);
 
 And here is the result:
 
-![Screenshot](https://raw.github.com/Beluki/EmbedDIBits/master/Screenshot/Screenshot.png)
+![Screenshot](Screenshot/Screenshot.png)
 
 The 32 bit format is used because it's a lot easier to deal with sprites
 in the same format, it's the most general format and it's compatible with
@@ -127,6 +127,6 @@ folder for more information. No warranty though.
 [GIMP]: http://www.gimp.org
 [Pillow]: https://pypi.python.org/pypi/Pillow
 
-[Documentation]: https://github.com/Beluki/EmbedDIBits/tree/master/Documentation
-[Examples]: https://github.com/Beluki/EmbedDIBits/tree/master/Examples
+[Documentation]: Documentation
+[Examples]: Examples
 
